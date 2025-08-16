@@ -1,0 +1,39 @@
+ @keyframes marquee {
+     0% {
+         transform: translateX(0);
+    }
+     100% {
+         transform: translateX(-50%);
+    }
+}
+ .animate-marquee {
+     animation: marquee 60s linear infinite;
+}
+.marquee-content {
+  display: flex;
+  gap: 1rem; /* Adjust this as needed */
+  /* Optional: align-items: center; */
+}
+ .lcp-text {
+    font-size: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .lcp-text {
+      font-size: 1.5rem;
+    }
+  }
+
+  .lcp-text {
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.75;
+  }
+html {
+  font-display: swap;
+}
+html {
+  scroll-padding-top: 40px; /* Adjust this value to your header's actual height */
+}
