@@ -11,6 +11,12 @@ on:
 
 # Allow this job to clone the repo and create a page deployment
 permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
@@ -21,6 +27,11 @@ permissions:
 
       - name: Activate Jaspr CLI 🚀
         run: dart pub global activate jaspr_cli
+
+      - name: Install Dependencies 📦
+        run: dart pub get
+
+      - name: Build Website 🔨
         run: jaspr build
 
       - name: Deploy to GitHub Pages 🚀
@@ -29,4 +40,4 @@ permissions:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-
+          publish_dir: ./build/jaspr
