@@ -17,8 +17,8 @@ class TechnologyTabState extends State<TechnologyTab> {
     (smartphone(height: 32.px, width: 32.px), 'iOS', '#000000'),
     (monitor(height: 32.px, width: 32.px), 'Windows', '#00BCF2'),
     //(code(height: 32.px, width: 32.px), 'React', '#61DAFB'),
-   // (smartphone(height: 32.px, width: 32.px), 'React Native', '#61DAFB'),
-  //  (server(height: 32.px, width: 32.px), 'Node.js', '#339933'),
+    // (smartphone(height: 32.px, width: 32.px), 'React Native', '#61DAFB'),
+    //  (server(height: 32.px, width: 32.px), 'Node.js', '#339933'),
     (database(height: 32.px, width: 32.px), 'Firebase', '#FFCA28'),
     (database(height: 32.px, width: 32.px), 'SQLite', '#003B57'),
     (database(height: 32.px, width: 32.px), 'GraphQL', '#E10098'),
@@ -34,8 +34,8 @@ class TechnologyTabState extends State<TechnologyTab> {
     (palette(height: 32.px, width: 32.px), 'Adobe XD', '#FF61F6'),
     (zap(height: 32.px, width: 32.px), 'Postman', '#FF6C37'),
     (package(height: 32.px, width: 32.px), 'Docker', '#2496ED'),
-  //  (cloud(height: 32.px, width: 32.px), 'AWS', '#FF9900'),
-   // (cloud(height: 32.px, width: 32.px), 'Google Cloud', '#4285F4'),
+    //  (cloud(height: 32.px, width: 32.px), 'AWS', '#FF9900'),
+    // (cloud(height: 32.px, width: 32.px), 'Google Cloud', '#4285F4'),
     (creditCard(height: 32.px, width: 32.px), 'Stripe', '#635BFF'),
     (creditCard(height: 32.px, width: 32.px), 'PayPal', '#00457C'),
     (wifi(height: 32.px, width: 32.px), 'Socket.io', '#010101'),
@@ -45,8 +45,8 @@ class TechnologyTabState extends State<TechnologyTab> {
     (code(height: 32.px, width: 32.px), 'JavaScript', '#F7DF1E'),
     (calendar(height: 32.px, width: 32.px), 'Jira', '#0052CC'),
     (messageSquare(height: 32.px, width: 32.px), 'Slack', '#4A154B'),
-   // (fileText(height: 32.px, width: 32.px), 'Notion', '#000000'),
- //   (trello(height: 32.px, width: 32.px), 'Trello', '#0079BF'),
+    // (fileText(height: 32.px, width: 32.px), 'Notion', '#000000'),
+    //   (trello(height: 32.px, width: 32.px), 'Trello', '#0079BF'),
   ];
 
   Component buildTechItem(icon, label, color) {

@@ -4,8 +4,6 @@ name: Build and Deploy Jaspr Site
 
 # Run this workflow on pushes and pull requests to the `main` branch
 on:
-  push:
-    branches: [ main ]
   pull_request:
     branches: [ main ]
 
