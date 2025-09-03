@@ -2,7 +2,7 @@
 import 'dart:js_interop';
 
 import 'package:jaspr/jaspr.dart';
-import 'package:jaspr_lucide/jaspr_lucide.dart' hide section, text;
+import 'package:jaspr_lucide/jaspr_lucide.dart' hide Section, Text, List, Component, Target, Key;
 import 'package:newportfolio/features/projects/data/platforms.dart';
 import 'package:newportfolio/features/projects/data/project.dart';
 import 'package:universal_web/web.dart' as web; // Required for .toJS, .toJS, and JS types
@@ -287,11 +287,11 @@ class _ProjectsState extends State<Projects> {
   }
 
   @override
-  Iterable<Component> build(BuildContext context) sync* {
+  Component build(BuildContext context) {
     // Filter projects based on the active category.
     final filteredProjects = _activeFilter == 'All' ? _projects : _projects.where((p) => p.category == _activeFilter).toList();
 
-    yield section(
+    return section(
       id: 'projects',
       classes: 'py-20 relative overflow-hidden',
       events: {},
@@ -387,7 +387,7 @@ class _ProjectsState extends State<Projects> {
                         div(
                           classes: 'flex items-center gap-1 text-yellow-400 text-sm',
                           [
-                            star(
+                            Star(
                               height: 14.px,
                               width: 14.px,
                               classes: 'fill-current',
@@ -428,7 +428,7 @@ class _ProjectsState extends State<Projects> {
                         div(
                           classes: 'flex items-center gap-2 text-sm text-white/70',
                           [
-                            smartphone(height: 14.px, width: 14.px),
+                            Smartphone(height: 14.px, width: 14.px),
                             span([text('${project.downloads} downloads')]),
                           ],
                         ),
@@ -470,7 +470,7 @@ class _ProjectsState extends State<Projects> {
                               target: Target.blank,
                               classes: 'flex items-center gap-2 px-3 py-2 bg-green-500/20 border border-green-500/30 rounded-lg text-green-300 text-xs font-medium hover:bg-green-500/30 transition-all duration-300',
                               [
-                                smartphone(height: 14.px, width: 14.px),
+                                Smartphone(height: 14.px, width: 14.px),
                                 text('Android'),
                               ],
                             ),
@@ -480,7 +480,7 @@ class _ProjectsState extends State<Projects> {
                               target: Target.blank,
                               classes: 'flex items-center gap-2 px-3 py-2 bg-gray-500/20 border border-gray-500/30 rounded-lg text-gray-300 text-xs font-medium hover:bg-gray-500/30 transition-all duration-300',
                               [
-                                smartphone(height: 14.px, width: 14.px),
+                                Smartphone(height: 14.px, width: 14.px),
                                 text('iOS'),
                               ],
                             ),
@@ -489,7 +489,7 @@ class _ProjectsState extends State<Projects> {
                               href: project.platforms.web!,
                               target: Target.blank,
                               classes: 'flex items-center gap-2 px-3 py-2 bg-blue-500/20 border border-blue-500/30 rounded-lg text-blue-300 text-xs font-medium hover:bg-blue-500/30 transition-all duration-300',
-                              [globe(height: 14.px, width: 14.px), text('Web')],
+                              [Globe(height: 14.px, width: 14.px), text('Web')],
                             ),
                           if (project.platforms.windows != null)
                             a(
@@ -497,7 +497,7 @@ class _ProjectsState extends State<Projects> {
                               target: Target.blank,
                               classes: 'flex items-center gap-2 px-3 py-2 bg-cyan-500/20 border border-cyan-500/30 rounded-lg text-cyan-300 text-xs font-medium hover:bg-cyan-500/30 transition-all duration-300',
                               [
-                                monitor(height: 14.px, width: 14.px),
+                                Monitor(height: 14.px, width: 14.px),
                                 text('Windows'),
                               ],
                             ),
@@ -511,7 +511,7 @@ class _ProjectsState extends State<Projects> {
                             classes:
                                 'flex-1 flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg text-white text-sm font-medium hover:from-purple-600 hover:to-pink-700 transition-all duration-300 transform hover:scale-105',
                             [
-                              externalLink(height: 16.px, width: 16.px),
+                              ExternalLink(height: 16.px, width: 16.px),
                               text('Live Demo'),
                             ],
                           ),
@@ -520,7 +520,7 @@ class _ProjectsState extends State<Projects> {
                             href: project.github!,
                             target: Target.blank,
                             classes: 'flex items-center justify-center gap-2 px-4 py-3 backdrop-blur-md bg-white/10 border border-white/20 rounded-lg text-white text-sm font-medium hover:bg-white/20 transition-all duration-300',
-                            [github(height: 16.px, width: 16.px), text('Source')],
+                            [Github(height: 16.px, width: 16.px), text('Source')],
                           ),
                       ]),
                     ]),

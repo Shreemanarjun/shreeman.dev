@@ -4,8 +4,8 @@ class About extends StatelessComponent {
   const About({super.key});
 
   @override
-  Iterable<Component> build(BuildContext context) sync* {
-    yield section([
+  Component build(BuildContext context) {
+    return section([
       ol([
         li([
           h3([text('📖 Documentation')]),

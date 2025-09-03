@@ -7,7 +7,7 @@ class CustomText extends StatelessComponent {
   const CustomText(this.data, {super.key, this.classes = ""});
 
   @override
-  Iterable<Component> build(BuildContext context) sync* {
-    yield div(classes: classes, [text(data)]);
+  Component build(BuildContext context) {
+    return div(classes: classes, [text(data)]);
   }
 }

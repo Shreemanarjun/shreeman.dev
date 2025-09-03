@@ -4,8 +4,8 @@ class LogoComponent extends StatelessComponent {
   const LogoComponent({super.key});
 
   @override
-  Iterable<Component> build(BuildContext context) sync* {
-    yield div(
+  Component build(BuildContext context) {
+    return div(
       classes: 'p-2 relative flex flex-col items-start text-2xl font-bold text-transparent bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text',
       [
         a(

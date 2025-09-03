@@ -1,6 +1,6 @@
 import 'package:jaspr/jaspr.dart';
 
-import 'package:jaspr_lucide/jaspr_lucide.dart' hide text;
+import 'package:jaspr_lucide/jaspr_lucide.dart' hide Text, Component;
 import 'package:newportfolio/features/hero/view/view_cv_button.dart';
 import 'package:universal_web/js_interop.dart';
 import 'package:universal_web/web.dart' as web;
@@ -13,8 +13,8 @@ class HeroSection extends StatelessComponent {
   }
 
   @override
-  Iterable<Component> build(BuildContext context) sync* {
-    yield div(
+  Component build(BuildContext context) {
+    return div(
       // The main container for the Hero section.
       // - 'min-h-screen flex items-center justify-center': Vertically centers content within the viewport height.
       // - 'relative overflow-hidden': For background elements.
@@ -114,7 +114,7 @@ class HeroSection extends StatelessComponent {
                       [
                         span(classes: 'flex items-center justify-center gap-2', [
                           text('View My Work'),
-                          arrowDown(
+                          ArrowDown(
                             height: 20.px,
                             width: 20.px,
                             classes: 'group-hover:translate-y-1 transition-transform duration-300',

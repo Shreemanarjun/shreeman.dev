@@ -109,7 +109,7 @@ class SkillsTabState extends State<SkillsTab> {
   }
 
   @override
-  Iterable<Component> build(BuildContext context) sync* {
+  Component build(BuildContext context) {
     final specializations = [
       'Cross-Platform Mobile Development',
       'State Management (Bloc, Provider, Riverpod)',
@@ -119,7 +119,7 @@ class SkillsTabState extends State<SkillsTab> {
       'App Store Deployment',
     ];
 
-    yield div(
+    return div(
       id: "Skills",
       classes:
           'transition-all duration-500 '

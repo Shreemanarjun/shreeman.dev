@@ -1,5 +1,5 @@
 import 'package:jaspr/browser.dart';
-import 'package:jaspr_lucide/jaspr_lucide.dart' hide text;
+import 'package:jaspr_lucide/jaspr_lucide.dart' hide Text, Component;
 
 class Certification extends StatefulComponent {
   @override
@@ -31,15 +31,15 @@ class CertificationState extends State<Certification> {
     ),
   ];
   @override
-  Iterable<Component> build(BuildContext context) sync* {
+  Component build(BuildContext context) {
     // Certifications
-    yield div(
+    return div(
       classes: 'backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl p-8',
       [
         h3(
           classes: 'text-2xl font-bold text-white mb-6 flex items-center gap-3',
           [
-            award(classes: 'w-6 h-6 text-yellow-400'),
+            Award(classes: 'w-6 h-6 text-yellow-400'),
             text('Professional Certifications'),
           ],
         ),
@@ -56,7 +56,7 @@ class CertificationState extends State<Certification> {
                   a(
                     href: cert.link,
                     classes: 'text-white/60 hover:text-white transition-colors duration-300',
-                    [externalLink(classes: 'w-4 h-4')],
+                    [ExternalLink(classes: 'w-4 h-4')],
                   ),
                 ]),
                 p(classes: 'text-white/70 text-sm mb-2', [text(cert.issuer)]),

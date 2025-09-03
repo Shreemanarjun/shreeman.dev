@@ -11,8 +11,8 @@ class Home extends StatelessComponent {
   const Home({super.key});
 
   @override
-  Iterable<Component> build(BuildContext context) sync* {
-    yield section(
+  Component build(BuildContext context) {
+    return section(
       [
         const HeroSection(),
         const About(),

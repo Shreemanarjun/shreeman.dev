@@ -1,5 +1,5 @@
 import 'package:jaspr/jaspr.dart';
-import 'package:jaspr_lucide/jaspr_lucide.dart' hide text, component;
+import 'package:jaspr_lucide/jaspr_lucide.dart' hide Text, Component;
 import 'package:newportfolio/features/experience/certification.dart';
 
 class Education extends StatefulComponent {
@@ -61,9 +61,9 @@ class EducationState extends State<Education> {
     ),
   ];
   @override
-  Iterable<Component> build(BuildContext context) sync* {
+  Component build(BuildContext context) {
     // Education
-    yield div(
+    return div(
       classes: 'transition-all duration-500 ${component.activeTab == 'education' ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10 absolute inset-0 pointer-events-none'}',
       [
         div(classes: 'space-y-8', [
@@ -99,11 +99,11 @@ class EducationState extends State<Education> {
                                 text(education[i].institution),
                               ]),
                               div(classes: 'flex items-center gap-1', [
-                                mapPin(classes: 'w-4 h-4'),
+                                MapPin(classes: 'w-4 h-4'),
                                 span([text(education[i].location)]),
                               ]),
                               div(classes: 'flex items-center gap-1', [
-                                calendar(classes: 'w-4 h-4'),
+                                Calendar(classes: 'w-4 h-4'),
                                 span([text(education[i].period)]),
                               ]),
                               span(
@@ -141,7 +141,7 @@ class EducationState extends State<Education> {
                         h4(
                           classes: 'text-lg font-semibold text-white mb-3 flex items-center gap-2',
                           [
-                            award(classes: 'w-4 h-4 text-blue-400'),
+                            Award(classes: 'w-4 h-4 text-blue-400'),
                             text('Achievements'),
                           ],
                         ),

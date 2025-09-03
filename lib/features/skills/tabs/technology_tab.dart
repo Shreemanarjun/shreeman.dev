@@ -1,5 +1,5 @@
 import 'package:jaspr/jaspr.dart' hide code;
-import 'package:jaspr_lucide/jaspr_lucide.dart' hide text;
+import 'package:jaspr_lucide/jaspr_lucide.dart' hide Text, Component;
 import 'package:newportfolio/components/custom_text.dart';
 
 class TechnologyTab extends StatefulComponent {
@@ -11,42 +11,42 @@ class TechnologyTab extends StatefulComponent {
 
 class TechnologyTabState extends State<TechnologyTab> {
   final technologies = [
-    (smartphone(height: 32.px, width: 32.px), 'Flutter', '#02569B'),
-    (code(height: 32.px, width: 32.px), 'Dart', '#0175C2'),
-    (smartphone(height: 32.px, width: 32.px), 'Android', '#3DDC84'),
-    (smartphone(height: 32.px, width: 32.px), 'iOS', '#000000'),
-    (monitor(height: 32.px, width: 32.px), 'Windows', '#00BCF2'),
-    //(code(height: 32.px, width: 32.px), 'React', '#61DAFB'),
-    // (smartphone(height: 32.px, width: 32.px), 'React Native', '#61DAFB'),
-    //  (server(height: 32.px, width: 32.px), 'Node.js', '#339933'),
-    (database(height: 32.px, width: 32.px), 'Firebase', '#FFCA28'),
-    (database(height: 32.px, width: 32.px), 'SQLite', '#003B57'),
-    (database(height: 32.px, width: 32.px), 'GraphQL', '#E10098'),
-    (database(height: 32.px, width: 32.px), 'MongoDB', '#47A248'),
-    (database(height: 32.px, width: 32.px), 'PostgreSQL', '#336791'),
-    (gitBranch(height: 32.px, width: 32.px), 'Git', '#F05032'),
-    (github(height: 32.px, width: 32.px), 'GitHub', '#181717'),
-    (gitMerge(height: 32.px, width: 32.px), 'GitLab', '#FC6D26'),
-    (fileCode(height: 32.px, width: 32.px), 'VS Code', '#007ACC'),
-    (fileCode(height: 32.px, width: 32.px), 'Android Studio', '#3DDC84'),
-    (fileCode(height: 32.px, width: 32.px), 'Xcode', '#147EFB'),
-    (figma(height: 32.px, width: 32.px), 'Figma', '#F24E1E'),
-    (palette(height: 32.px, width: 32.px), 'Adobe XD', '#FF61F6'),
-    (zap(height: 32.px, width: 32.px), 'Postman', '#FF6C37'),
-    (package(height: 32.px, width: 32.px), 'Docker', '#2496ED'),
-    //  (cloud(height: 32.px, width: 32.px), 'AWS', '#FF9900'),
-    // (cloud(height: 32.px, width: 32.px), 'Google Cloud', '#4285F4'),
-    (creditCard(height: 32.px, width: 32.px), 'Stripe', '#635BFF'),
-    (creditCard(height: 32.px, width: 32.px), 'PayPal', '#00457C'),
-    (wifi(height: 32.px, width: 32.px), 'Socket.io', '#010101'),
-    (hardDrive(height: 32.px, width: 32.px), 'Redis', '#DC382D'),
-    (globe(height: 32.px, width: 32.px), 'HTML5', '#E34F26'),
-    (palette(height: 32.px, width: 32.px), 'CSS3', '#1572B6'),
-    (code(height: 32.px, width: 32.px), 'JavaScript', '#F7DF1E'),
-    (calendar(height: 32.px, width: 32.px), 'Jira', '#0052CC'),
-    (messageSquare(height: 32.px, width: 32.px), 'Slack', '#4A154B'),
-    // (fileText(height: 32.px, width: 32.px), 'Notion', '#000000'),
-    //   (trello(height: 32.px, width: 32.px), 'Trello', '#0079BF'),
+    (Smartphone(height: 32.px, width: 32.px), 'Flutter', '#02569B'),
+    (Code(height: 32.px, width: 32.px), 'Dart', '#0175C2'),
+    (Smartphone(height: 32.px, width: 32.px), 'Android', '#3DDC84'),
+    (Smartphone(height: 32.px, width: 32.px), 'iOS', '#000000'),
+    (Monitor(height: 32.px, width: 32.px), 'Windows', '#00BCF2'),
+    //(Code(height: 32.px, width: 32.px), 'React', '#61DAFB'),
+    // (Smartphone(height: 32.px, width: 32.px), 'React Native', '#61DAFB'),
+    //  (Server(height: 32.px, width: 32.px), 'Node.js', '#339933'),
+    (Database(height: 32.px, width: 32.px), 'Firebase', '#FFCA28'),
+    (Database(height: 32.px, width: 32.px), 'SQLite', '#003B57'),
+    (Database(height: 32.px, width: 32.px), 'GraphQL', '#E10098'),
+    (Database(height: 32.px, width: 32.px), 'MongoDB', '#47A248'),
+    (Database(height: 32.px, width: 32.px), 'PostgreSQL', '#336791'),
+    (GitBranch(height: 32.px, width: 32.px), 'Git', '#F05032'),
+    (Github(height: 32.px, width: 32.px), 'GitHub', '#181717'),
+    (GitMerge(height: 32.px, width: 32.px), 'GitLab', '#FC6D26'),
+    (FileCode(height: 32.px, width: 32.px), 'VS Code', '#007ACC'),
+    (FileCode(height: 32.px, width: 32.px), 'Android Studio', '#3DDC84'),
+    (FileCode(height: 32.px, width: 32.px), 'Xcode', '#147EFB'),
+    (Figma(height: 32.px, width: 32.px), 'Figma', '#F24E1E'),
+    (Palette(height: 32.px, width: 32.px), 'Adobe XD', '#FF61F6'),
+    (Zap(height: 32.px, width: 32.px), 'Postman', '#FF6C37'),
+    (Package(height: 32.px, width: 32.px), 'Docker', '#2496ED'),
+    //  (Cloud(height: 32.px, width: 32.px), 'AWS', '#FF9900'),
+    // (Cloud(height: 32.px, width: 32.px), 'Google Cloud', '#4285F4'),
+    (CreditCard(height: 32.px, width: 32.px), 'Stripe', '#635BFF'),
+    (CreditCard(height: 32.px, width: 32.px), 'PayPal', '#00457C'),
+    (Wifi(height: 32.px, width: 32.px), 'Socket.io', '#010101'),
+    (HardDrive(height: 32.px, width: 32.px), 'Redis', '#DC382D'),
+    (Globe(height: 32.px, width: 32.px), 'HTML5', '#E34F26'),
+    (Palette(height: 32.px, width: 32.px), 'CSS3', '#1572B6'),
+    (Code(height: 32.px, width: 32.px), 'JavaScript', '#F7DF1E'),
+    (Calendar(height: 32.px, width: 32.px), 'Jira', '#0052CC'),
+    (MessageSquare(height: 32.px, width: 32.px), 'Slack', '#4A154B'),
+    // (FileText(height: 32.px, width: 32.px), 'Notion', '#000000'),
+    //   (Trello(height: 32.px, width: 32.px), 'Trello', '#0079BF'),
   ];
 
   Component buildTechItem(icon, label, color) {
@@ -68,8 +68,8 @@ class TechnologyTabState extends State<TechnologyTab> {
   }
 
   @override
-  Iterable<Component> build(BuildContext context) sync* {
-    yield div(classes: 'transition-all duration-500 opacity-100 translate-x-0', [
+  Component build(BuildContext context) {
+    return div(classes: 'transition-all duration-500 opacity-100 translate-x-0', [
       div(
         classes: 'backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl p-8',
         [
@@ -105,7 +105,7 @@ class TechnologyTabState extends State<TechnologyTab> {
                 h4(
                   classes: 'text-lg font-semibold text-white mb-4 flex items-center gap-2',
                   [
-                    smartphone(classes: 'text-blue-400'),
+                    Smartphone(classes: 'text-blue-400'),
                     text('Mobile Development'),
                   ],
                 ),
@@ -123,7 +123,7 @@ class TechnologyTabState extends State<TechnologyTab> {
                 h4(
                   classes: 'text-lg font-semibold text-white mb-4 flex items-center gap-2',
                   [
-                    database(classes: 'text-orange-400'),
+                    Database(classes: 'text-orange-400'),
                     text('Backend & Cloud'),
                   ],
                 ),
@@ -141,7 +141,7 @@ class TechnologyTabState extends State<TechnologyTab> {
                 h4(
                   classes: 'text-lg font-semibold text-white mb-4 flex items-center gap-2',
                   [
-                    gitBranch(classes: 'text-orange-500'),
+                    GitBranch(classes: 'text-orange-500'),
                     text('Development Tools'),
                   ],
                 ),

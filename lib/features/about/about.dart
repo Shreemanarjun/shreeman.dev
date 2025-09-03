@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:js_interop' as web;
 
 import 'package:jaspr/jaspr.dart';
-import 'package:jaspr_lucide/jaspr_lucide.dart' hide section, text, code;
+import 'package:jaspr_lucide/jaspr_lucide.dart' hide Section, Text, Code, Timer, Component;
 import 'package:js_interop_utils/js_interop_utils.dart';
 import 'package:universal_web/web.dart' as webc;
 
@@ -83,25 +83,25 @@ class _AboutState extends State<About> {
       description: "Writing maintainable, scalable code following best practices and design patterns.",
     ),
     (
-      icon: smartphone(),
+      icon: Smartphone(),
       title: "Cross-Platform",
       description: "Single codebase for both iOS and Android with native performance.",
     ),
     (
-      icon: layers(),
+      icon: Layers(),
       title: "Modern UI",
       description: "Creating beautiful, responsive interfaces with Material Design and Cupertino.",
     ),
     (
-      icon: zap(),
+      icon: Zap(),
       title: "Performance",
       description: "Optimizing apps for speed, efficiency, and excellent user experience.",
     ),
   ];
 
   @override
-  Iterable<Component> build(BuildContext context) sync* {
-    yield section(
+  Component build(BuildContext context) {
+    return section(
       id: 'about',
       classes: 'py-20 relative overflow-hidden',
       events: {

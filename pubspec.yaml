@@ -1,6 +1,7 @@
 name: newportfolio
 description: My personal portfolio website, a showcase of my skills and projects.
 version: 0.0.1
+publish_to: none
 
 environment:
   sdk: '>=3.9.0 <4.0.0'
@@ -8,26 +9,26 @@ environment:
 dependencies:
   # flutter:
   #    sdk: flutter
-  jaspr: ^0.19.1
-  jaspr_flutter_embed: ^0.4.7
-  jaspr_lucide: ^0.4.0
-  jaspr_riverpod: ^0.3.21
-  jaspr_router: ^0.7.1
+  jaspr: ^0.21.0-dev.1
+  jaspr_flutter_embed: ^0.4.8-dev.1
+  jaspr_lucide:
+    git: https://github.com/Shreemanarjun/jaspr_lucide.git
+  jaspr_riverpod: ^0.3.22-dev.1
+  jaspr_router: ^0.7.2-dev.1
   js_interop_utils: ^1.0.8
   universal_web: ^1.1.1
 
 dev_dependencies:
   build_runner: ^2.5.4
-  jaspr_web_compilers: ^4.2.1
-  jaspr_builder: ^0.20.0
+  jaspr_web_compilers: ^4.2.3+1
+  jaspr_builder: ^0.21.0-dev.1
   # flutter_test:
   #   sdk: flutter
   flutter_lints: ^5.0.0
   jaspr_lints: ^0.4.0
-  jaspr_tailwind: ^0.3.3
+  jaspr_tailwind:
+    git: https://github.com/Shreemanarjun/jaspr_tailwind.git
 
-dependency_overrides:
-    jaspr: ^0.20.0
 
 jaspr:
   mode: client

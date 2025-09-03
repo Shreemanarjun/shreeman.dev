@@ -79,8 +79,8 @@ class _AnimatedTextState extends State<AnimatedText> {
   }
 
   @override
-  Iterable<Component> build(BuildContext context) sync* {
-    yield span(classes: component.className, [
+  Component build(BuildContext context) {
+    return span(classes: component.className, [
       RawText(_displayText),
       span(classes: 'animate-pulse', [text('|')]),
     ]);

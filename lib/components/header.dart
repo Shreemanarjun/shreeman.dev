@@ -1,6 +1,6 @@
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_riverpod/jaspr_riverpod.dart';
-import 'package:jaspr_lucide/jaspr_lucide.dart' hide text;
+import 'package:jaspr_lucide/jaspr_lucide.dart' hide Component;
 import 'package:newportfolio/components/logo_component.dart';
 import 'package:universal_web/js_interop.dart';
 import 'package:universal_web/web.dart' as web;
@@ -51,7 +51,7 @@ class _HeaderState extends State<Header> {
   }
 
   @override
-  Iterable<Component> build(BuildContext context) sync* {
+  Component build(BuildContext context) {
     final navItems = [
       'About',
       'Projects',
@@ -61,7 +61,7 @@ class _HeaderState extends State<Header> {
     ];
     final isScrolled = context.watch(isScrolledProvider);
     final isMobileMenuOpen = context.watch(isMobileMenuOpenProvider);
-    yield div([
+    return div([
       header(
         classes: 'fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'backdrop-blur-md bg-white/10 border-b border-white/20' : 'bg-transparent'}',
         [
@@ -96,23 +96,23 @@ class _HeaderState extends State<Header> {
                 a(
                   href: 'https://github.com/Shreemanarjun',
                   classes: 'text-white/80 hover:text-white transition-colors duration-300 hover:scale-110 transform',
-                  [github(height: 20.px, width: 20.px)],
+                  [Github(height: 20.px, width: 20.px)],
                 ),
                 a(
                   href: 'https://www.linkedin.com/in/shreemanarjun/',
                   classes: 'text-white/80 hover:text-white transition-colors duration-300 hover:scale-110 transform',
-                  [linkedin(height: 20.px, width: 20.px)],
+                  [Linkedin(height: 20.px, width: 20.px)],
                 ),
                 a(
                   href: 'https://twitter.com/shreemanarjun/',
                   classes: 'text-white/80 hover:text-white transition-colors duration-300 hover:scale-110 transform',
-                  [twitter(height: 20.px, width: 20.px)],
+                  [Twitter(height: 20.px, width: 20.px)],
                 ),
                 a(
                   href: 'mailto:shreemanarjunsahu@gmail.com',
                   classes: 'text-white/80 hover:text-white transition-colors duration-300 hover:scale-110 transform',
                   [
-                    mail(height: 20.px, width: 20.px),
+                    Mail(height: 20.px, width: 20.px),
                   ],
                 ),
               ]),
@@ -127,7 +127,7 @@ class _HeaderState extends State<Header> {
                 },
                 classes: 'md:hidden text-white/80 hover:text-white transition-colors duration-300',
                 [
-                  isMobileMenuOpen ? x(height: 20.px, width: 20.px) : menu(height: 20.px, width: 20.px),
+                  isMobileMenuOpen ? X(height: 20.px, width: 20.px) : Menu(height: 20.px, width: 20.px),
                 ],
               ),
             ]),
@@ -149,17 +149,17 @@ class _HeaderState extends State<Header> {
                     a(
                       href: 'https://github.com/Shreemanarjun',
                       classes: 'text-white/80 hover:text-white transition-colors duration-300 hover:scale-110 transform',
-                      [github(height: 20.px, width: 20.px)],
+                      [Github(height: 20.px, width: 20.px)],
                     ),
                     a(
                       href: 'https://www.linkedin.com/in/shreemanarjun/',
                       classes: 'text-white/80 hover:text-white transition-colors duration-300 hover:scale-110 transform',
-                      [linkedin(height: 20.px, width: 20.px)],
+                      [Linkedin(height: 20.px, width: 20.px)],
                     ),
                     a(
                       href: 'https://twitter.com/shreemanarjun/',
                       classes: 'text-white/80 hover:text-white transition-colors duration-300 hover:scale-110 transform',
-                      [mail(height: 20.px, width: 20.px)],
+                      [Mail(height: 20.px, width: 20.px)],
                     ),
                   ]),
                 ],

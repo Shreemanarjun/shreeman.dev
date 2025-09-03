@@ -1,5 +1,5 @@
 import 'package:jaspr/jaspr.dart';
-import 'package:jaspr_lucide/jaspr_lucide.dart' hide text, component;
+import 'package:jaspr_lucide/jaspr_lucide.dart' hide Text, Component;
 import 'package:newportfolio/features/experience/education.dart';
 
 class WorkExperience extends StatefulComponent {
@@ -134,9 +134,9 @@ class WorkExperienceState extends State<WorkExperience> {
     ),
   ];
   @override
-  Iterable<Component> build(BuildContext context) sync* {
+  Component build(BuildContext context) {
     // Content
-    yield div(classes: 'relative', [
+    return div(classes: 'relative', [
       // Work Experience
       div(
         classes: 'transition-all duration-500 ${component.activeTab == 'work' ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10 absolute inset-0 pointer-events-none'}',
@@ -174,11 +174,11 @@ class WorkExperienceState extends State<WorkExperience> {
                                   [text(workExperience[i].company)],
                                 ),
                                 div(classes: 'flex items-center gap-1', [
-                                  mapPin(classes: 'w-4 h-4'),
+                                  MapPin(classes: 'w-4 h-4'),
                                   span([text(workExperience[i].location)]),
                                 ]),
                                 div(classes: 'flex items-center gap-1', [
-                                  calendar(classes: 'w-4 h-4'),
+                                  Calendar(classes: 'w-4 h-4'),
                                   span([text(workExperience[i].period)]),
                                 ]),
                                 span(
@@ -200,7 +200,7 @@ class WorkExperienceState extends State<WorkExperience> {
                         h4(
                           classes: 'text-lg font-semibold text-white mb-3 flex items-center gap-2',
                           [
-                            award(classes: 'w-4 h-4 text-emerald-400'),
+                            Award(classes: 'w-4 h-4 text-emerald-400'),
                             text('Key Achievements'),
                           ],
                         ),

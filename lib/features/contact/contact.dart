@@ -1,5 +1,5 @@
 import 'package:jaspr/jaspr.dart';
-import 'package:jaspr_lucide/jaspr_lucide.dart' hide section, text;
+import 'package:jaspr_lucide/jaspr_lucide.dart' hide Section, Text, Map, List, Component;
 import 'package:js_interop_utils/js_interop_utils.dart';
 import 'package:universal_web/web.dart' as web;
 import 'package:universal_web/web.dart' as webc;
@@ -85,19 +85,19 @@ class _ContactState extends State<Contact> {
   // Data for contact info and social links
   final List<Map<String, dynamic>> contactInfo = [
     {
-      'icon': mail(classes: 'w-6 h-6'),
+      'icon': Mail(classes: 'w-6 h-6'),
       'title': 'Email',
       'value': 'shreemanarjunsahu@gmail.com',
       'link': 'mailto:shreemanarjunsahu@gmail.com',
     },
     {
-      'icon': phone(classes: 'w-6 h-6'),
+      'icon': Phone(classes: 'w-6 h-6'),
       'title': 'Phone',
       'value': '+91 82499 43298',
       'link': 'tel:+91824994398',
     },
     {
-      'icon': mapPin(classes: 'w-6 h-6'),
+      'icon': MapPin(classes: 'w-6 h-6'),
       'title': 'Location',
       'value': 'Angul,Odisha,India',
       'link': 'https://maps.app.goo.gl/xTz8YEnApCNFkeCg9',
@@ -106,19 +106,19 @@ class _ContactState extends State<Contact> {
 
   final List<Map<String, dynamic>> socialLinks = [
     {
-      'icon': github(classes: 'w-6 h-6'),
+      'icon': Github(classes: 'w-6 h-6'),
       'name': 'GitHub',
       'url': 'https://github.com/Shreemanarjun',
       'color': 'hover:text-gray-300',
     },
     {
-      'icon': linkedin(classes: 'w-6 h-6'),
+      'icon': Linkedin(classes: 'w-6 h-6'),
       'name': 'LinkedIn',
       'url': 'https://www.linkedin.com/in/shreemanarjun/',
       'color': 'hover:text-blue-400',
     },
     {
-      'icon': twitter(classes: 'w-6 h-6'),
+      'icon': Twitter(classes: 'w-6 h-6'),
       'name': 'Twitter',
       'url': 'https://twitter.com/shreemanarjun/',
       'color': 'hover:text-blue-300',
@@ -126,8 +126,8 @@ class _ContactState extends State<Contact> {
   ];
 
   @override
-  Iterable<Component> build(BuildContext context) sync* {
-    yield section(id: 'contact', classes: 'py-20 relative overflow-hidden', [
+  Component build(BuildContext context) {
+    return section(id: 'contact', classes: 'py-20 relative overflow-hidden', [
       // Background Elements
       div(classes: 'absolute inset-0', [
         div(
@@ -312,7 +312,7 @@ class _ContactState extends State<Contact> {
                         classes:
                             'w-full flex items-center justify-center gap-3 py-4 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg text-white font-semibold hover:from-indigo-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl group',
                         [
-                          send(
+                          Send(
                             classes: 'w-5 h-5 group-hover:translate-x-1 transition-transform duration-300',
                           ),
                           text('Send Message'),

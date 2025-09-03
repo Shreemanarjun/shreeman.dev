@@ -57,8 +57,8 @@ class SkillsState extends State<Skills> {
   }
 
   @override
-  Iterable<Component> build(BuildContext ctx) sync* {
-    yield section(id: 'skills', classes: 'py-20 relative overflow-hidden', [
+  Component build(BuildContext ctx) {
+    return section(id: 'skills', classes: 'py-20 relative overflow-hidden', [
       // Background
       div(classes: 'absolute inset-0', [
         div(

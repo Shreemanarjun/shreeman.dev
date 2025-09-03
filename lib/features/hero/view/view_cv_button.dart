@@ -1,5 +1,5 @@
 import 'package:jaspr/jaspr.dart';
-import 'package:jaspr_lucide/jaspr_lucide.dart' hide text, component;
+import 'package:jaspr_lucide/jaspr_lucide.dart' hide Text, Component, Router;
 import 'package:jaspr_router/jaspr_router.dart';
 
 import 'package:universal_web/web.dart' as web;
@@ -19,9 +19,9 @@ class ViewCVState extends State<ViewCV> {
 
   final resumeLink = 'https://zmozkivkhopoeutpnnum.supabase.co/storage/v1/object/public/images//Shreeman-Arjun-Sahu-FlowCV-Resume-20250716.pdf';
   @override
-  Iterable<Component> build(BuildContext context) sync* {
+  Component build(BuildContext context) {
     // 🟢 Action Button
-    yield a(
+    return a(
       href: '#',
       events: {
         'click': (e) {
@@ -40,7 +40,7 @@ class ViewCVState extends State<ViewCV> {
       classes: 'group px-8 py-4 backdrop-blur-md bg-white/10 border border-white/30 rounded-full text-white font-semibold hover:bg-white/20 transition-all duration-300 transform hover:scale-105',
       [
         span(classes: 'flex items-center justify-center gap-2', [
-          download(
+          Download(
             height: 20.px,
             width: 20.px,
             classes: 'group-hover:translate-y-1 transition-transform duration-300',

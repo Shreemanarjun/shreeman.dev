@@ -8,8 +8,8 @@ class Footer extends StatelessComponent {
   const Footer({super.key});
 
   @override
-  Iterable<Component> build(BuildContext context) sync* {
-    yield footer(
+  Component build(BuildContext context) {
+    return footer(
       classes: 'py-12 relative overflow-hidden', // Corrected: single string
       [
         // Background Elements

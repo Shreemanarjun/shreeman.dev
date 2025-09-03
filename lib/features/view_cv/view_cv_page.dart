@@ -2,7 +2,7 @@ import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_router/jaspr_router.dart';
 import 'package:universal_web/js_interop.dart';
 import 'package:universal_web/web.dart' as web;
-import 'package:jaspr_lucide/jaspr_lucide.dart' hide text, component;
+import 'package:jaspr_lucide/jaspr_lucide.dart' hide Text, Component, Router;
 
 class ViewCvPage extends StatefulComponent {
   @override
@@ -61,8 +61,8 @@ class ViewCvPageState extends State<ViewCvPage> {
   }
 
   @override
-  Iterable<Component> build(BuildContext context) sync* {
-    yield div(
+  Component build(BuildContext context) {
+    return div(
       classes: 'fixed inset-0 flex items-center justify-center z-50 bg-black/60 backdrop-blur-md transition-opacity duration-300',
       [
         // Modal card wrapper
@@ -85,7 +85,9 @@ class ViewCvPageState extends State<ViewCvPage> {
                 },
               },
               classes: 'absolute top-3 right-3 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full transition shadow-lg z-10',
-              [x(height: 20.px, width: 20.px)],
+              [
+                X(height: 20.px, width: 20.px),
+              ],
             ),
 
             div(classes: 'w-full h-full', [

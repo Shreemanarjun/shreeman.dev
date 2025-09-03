@@ -2,7 +2,7 @@ import 'dart:js_interop' as web;
 import 'dart:async';
 
 import 'package:jaspr/jaspr.dart';
-import 'package:jaspr_lucide/jaspr_lucide.dart' hide section, text;
+import 'package:jaspr_lucide/jaspr_lucide.dart' hide Section, Text, Timer, Component;
 import 'package:js_interop_utils/js_interop_utils.dart';
 
 import 'package:newportfolio/features/experience/work_experience.dart';
@@ -66,8 +66,8 @@ class _ExperienceState extends State<Experience> {
   }
 
   @override
-  Iterable<Component> build(BuildContext context) sync* {
-    yield section(
+  Component build(BuildContext context) {
+    return section(
       id: 'experience',
       classes: 'py-20 relative overflow-hidden',
       events: {
@@ -126,7 +126,7 @@ class _ExperienceState extends State<Experience> {
                           "click": (e) => setState(() => activeTab = 'work'),
                         },
                         [
-                          briefcase(classes: 'w-5 h-5'),
+                          Briefcase(classes: 'w-5 h-5'),
                           text('Work Experience'),
                         ],
                       ),
@@ -136,7 +136,10 @@ class _ExperienceState extends State<Experience> {
                         events: {
                           "click": (e) => setState(() => activeTab = 'education'),
                         },
-                        [graduationCap(classes: 'w-5 h-5'), text('Education')],
+                        [
+                          GraduationCap(classes: 'w-5 h-5'),
+                          text('Education'),
+                        ],
                       ),
                     ]),
                   ],
