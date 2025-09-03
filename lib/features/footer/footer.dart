@@ -169,6 +169,11 @@ class Footer extends StatelessComponent {
                           ],
                         ),
                         span([text('by Shreeman Arjun Sahu')]),
+                        Builder(
+                          builder: (context) {
+                            return text("v1.0.0");
+                          },
+                        ),
                       ],
                     ),
                     div(
