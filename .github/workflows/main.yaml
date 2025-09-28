@@ -1,0 +1,41 @@
+# .github/workflows/main.yml
+
+name: Build and Deploy Jaspr Site
+
+# Run this workflow on pushes and pull requests to the `main` branch
+on:
+  pull_request:
+    branches: [ main ]
+
+# Allow this job to clone the repo and create a page deployment
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter 🐦
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      - name: Activate Jaspr CLI 🚀
+        run: dart pub global activate jaspr_cli
+
+      - name: Install Dependencies 📦
+        run: dart pub get
+
+      - name: Build Website 🔨
+        run: jaspr build
+
+      - name: Deploy to GitHub Pages 🚀
+        # Only deploy when pushing to the main branch
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/jaspr
