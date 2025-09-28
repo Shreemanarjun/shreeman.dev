@@ -1,11 +1,11 @@
 {
-    "name": "paper_port",
-    "short_name": "paper_port",
+    "name": "shreeman.dev",
+    "short_name": "shreeman.dev",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Jaspr project",
+    "description": "Shreeman Sahu's personal portfolio showcasing mobile app development skills and projects.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

@@ -11,7 +11,7 @@ dependencies:
   # flutter:
   #    sdk: flutter
   jaspr: ^0.21.3
-  jaspr_flutter_embed: ^0.4.9
+  # jaspr_flutter_embed: ^0.4.9
   jaspr_lucide:
     git: https://github.com/Shreemanarjun/jaspr_lucide.git
   jaspr_riverpod: ^0.4.0

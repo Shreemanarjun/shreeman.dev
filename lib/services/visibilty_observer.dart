@@ -91,7 +91,7 @@ mixin VisibilityObserverMixin<T extends StatefulComponent> on State<T> {
         // This margin creates a detection zone that starts 40% down from the top of the viewport
         // and extends all the way to the bottom. This prevents the last element from being
         // de-selected prematurely on wide/short screens.
-        rootMargin: '-40% 0px -40% 0px',
+        rootMargin: '0% 0px 0% 0px',
       ),
     );
   }
