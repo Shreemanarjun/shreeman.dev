@@ -363,30 +363,30 @@ class _ProjectCard extends StatelessComponent {
                 ),
               ],
             ),
-            if (project.url != null) // Only show the external link button if a URL exists
-              button(
+            // If a URL exists, render the external link icon wrapped in an anchor tag.
+            if (project.url case final url?)
+              a(
+                href: url,
+                target: Target.blank,
                 classes: "icon-link group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform",
                 [
-                  ExternalLink(
-                    height: 24.px,
-                    width: 24.px,
-                    styles: Styles(
-                      raw: {
-                        "strokeWidth": "1.5.px",
-                      },
+                  button([
+                    ExternalLink(
+                      height: 24.px,
+                      width: 24.px,
+                      styles: Styles(
+                        raw: {
+                          "strokeWidth": "1.5.px",
+                        },
+                      ),
                     ),
-                  ),
+                  ]),
                 ],
               ),
           ],
         ),
       ],
     );
-
-    // If a URL exists, wrap the card content in an anchor tag.
-    if (project.url case final url?) {
-      return a(href: url, target: Target.blank, [cardContent]);
-    }
-    return cardContent; // Otherwise, return just the card content.
+    return cardContent;
   }
 }

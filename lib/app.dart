@@ -1,6 +1,8 @@
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_riverpod/jaspr_riverpod.dart';
 import 'package:jaspr_router/jaspr_router.dart';
+import 'package:paper_port/pages/blogs.dart';
+import 'package:paper_port/pages/packages.dart';
 import 'package:paper_port/pages/view_cv_page.dart';
 
 import 'components/header.dart';
@@ -25,9 +27,27 @@ class App extends StatelessComponent {
                 child,
               ]),
               routes: [
-                Route(path: '/', title: 'Home', builder: (context, state) => const Home()),
-                Route(path: '/cv', title: 'About', builder: (context, state) => ViewCvPage()),
+                Route(
+                  path: '/',
+                  title: 'Home',
+                  builder: (context, state) => const Home(),
+                ),
+                Route(
+                  path: '/cv',
+                  title: 'About',
+                  builder: (context, state) => ViewCvPage(),
+                ),
               ],
+            ),
+            Route(
+              path: '/blogs',
+              title: 'Blogs',
+              builder: (context, state) => Blogs(),
+            ),
+            Route(
+              path: '/packages',
+              title: 'Packages',
+              builder: (context, state) => Packages(),
             ),
           ],
         ),

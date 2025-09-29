@@ -22,11 +22,14 @@ final activeSectionIDProvider = StateProvider.autoDispose<String>(
 class CustomNav extends StatefulComponent {
   const CustomNav({super.key});
   // Define sections with their corresponding IDs for navigation.
-  static const sections = [
-    (id: 'about', label: 'About'),
-    (id: 'work', label: 'Work'),
-    (id: 'skills', label: 'Skills'),
-    (id: 'contact', label: 'Contact'),
+  // It now supports in-page scrolling (using `id`) and external links (using `href`).
+  static const sections = <({String label, String? id, String? href})>[
+    (label: 'About', id: 'about', href: null),
+    (label: 'Work', id: 'work', href: null),
+    (label: 'Skills', id: 'skills', href: null),
+    (label: 'Contact', id: 'contact', href: null),
+    (label: 'Blogs', id: null, href: 'https://blogs.shreeman.dev'),
+    (label: 'Packages', id: null, href: 'https://pub.dev/publishers/shreeman.dev/packages'),
   ];
 
   @override
@@ -34,34 +37,51 @@ class CustomNav extends StatefulComponent {
 }
 
 class _CustomNavState extends State<CustomNav> {
-  // Helper method to generate navigation links, avoiding duplication.
   Iterable<Component> _buildNavLinks(
     BuildContext context, {
     required String defaultClasses,
     bool isMobile = false,
   }) {
     return CustomNav.sections.map(
-      (sectionData) => button(
-        events: events(
-          onClick: () {
-            // Use the ID from the section data to scroll.
-            ScrollService().scrollToSection(sectionData.id);
-            // If it's a mobile link, also close the menu.
-            if (isMobile) {
-              context.read(isMenuOpenProvider.notifier).state = false;
-            }
-          },
-        ),
-        // Apply active styles conditionally based on the current visible section.
-        classes: [
-          context.watch(activeSectionIDProvider.select((activeId) => activeId == sectionData.id))
-              ? "text-gray-900 font-semibold"
-              : "text-gray-600",
-          defaultClasses,
-          "cursor-pointer",
-        ].join(' '),
-        [text(sectionData.label)],
-      ),
+      (sectionData) {
+        final id = sectionData.id;
+        final href = sectionData.href;
+
+        if (href != null) {
+          // This is a hyperlink to another site.
+          return a(
+            href: href,
+            target: Target.blank, // Open in a new tab
+            classes: [
+              "text-gray-600",
+              defaultClasses,
+            ].join(' '),
+            [text(sectionData.label)],
+          );
+        } else if (id != null) {
+          // This is an in-page scroll link.
+          return button(
+            events: events(
+              onClick: () {
+                ScrollService().scrollToSection(id);
+                if (isMobile) {
+                  context.read(isMenuOpenProvider.notifier).state = false;
+                }
+              },
+            ),
+            classes: [
+              context.watch(activeSectionIDProvider.select((activeId) => activeId == id))
+                  ? "text-gray-900 font-semibold"
+                  : "text-gray-600",
+              defaultClasses,
+              "cursor-pointer",
+            ].join(' '),
+            [text(sectionData.label)],
+          );
+        }
+        // Return an empty component if neither id nor href is provided.
+        return text('');
+      },
     );
   }
 
@@ -116,9 +136,6 @@ class _CustomNavState extends State<CustomNav> {
             ),
 
             /// Mobile Navigation Menu
-            ///
-            ///
-            ///
             Builder(
               builder: (context) {
                 final isMenuOpen = context.watch(isMenuOpenProvider);
