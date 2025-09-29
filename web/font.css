@@ -1,0 +1,9 @@
+/* Set the default font for the entire application */
+body {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+/* Use JetBrains Mono for code blocks and inline code for better readability */
+code, pre {
+    font-family: 'JetBrains Mono', monospace;
+}

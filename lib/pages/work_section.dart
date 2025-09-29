@@ -1,5 +1,5 @@
 import 'package:jaspr/jaspr.dart';
-import 'package:jaspr_lucide/jaspr_lucide.dart' hide Component, List, Target;
+import 'package:jaspr_lucide/jaspr_lucide.dart' hide Component, List, Target, Text;
 
 typedef Project = ({
   String description,
@@ -189,7 +189,7 @@ class WorkSection extends StatelessComponent {
   Component build(BuildContext context) {
     return section(
       id: 'work',
-      classes: "py-32 px-6 bg-white",
+      classes: "py-32 px-6 bg-slate-50", // Changed background to make cards pop
       [
         div(
           classes: "max-w-6xl mx-auto",
@@ -205,146 +205,8 @@ class WorkSection extends StatelessComponent {
                   ],
                 ),
                 div(
-                  classes: "space-y-12",
-                  projects.map((project) {
-                    final card = div(
-                      classes:
-                          "project-card group p-8 rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-transparent hover:border-gray-100",
-                      [
-                        div(
-                          classes: "flex flex-col lg:flex-row lg:items-center justify-between gap-8",
-                          [
-                            div(
-                              classes: "flex-1 space-y-4",
-                              [
-                                div(
-                                  classes: "flex items-center flex-wrap gap-x-4 gap-y-2 text-sm text-gray-500",
-                                  [
-                                    if (project.rating > 0)
-                                      div(
-                                        classes: "flex items-center gap-1.5",
-                                        [
-                                          ...() {
-                                            final stars = <Component>[];
-                                            final fullStars = project.rating.floor();
-                                            final hasHalfStar = (project.rating - fullStars) >= 0.5;
-                                            final starColor = Color('#ffc107'); // amber-500
-                                            final emptyStarColor = Color('#e5e7eb'); // gray-200
-
-                                            for (var i = 0; i < 5; i++) {
-                                              if (i < fullStars) {
-                                                // Full Star
-                                                stars.add(
-                                                  Star(
-                                                    height: 16.px,
-                                                    width: 16.px,
-                                                    styles: Styles(
-                                                      color: starColor,
-                                                      raw: {
-                                                        'fill': starColor.value,
-                                                      },
-                                                    ),
-                                                  ),
-                                                );
-                                              } else if (i == fullStars && hasHalfStar) {
-                                                // Half Star
-                                                stars.add(
-                                                  StarHalf(
-                                                    height: 16.px,
-                                                    width: 16.px,
-                                                    styles: Styles(
-                                                      color: starColor,
-                                                      raw: {
-                                                        'fill': starColor.value,
-                                                      },
-                                                    ),
-                                                  ),
-                                                );
-                                              } else {
-                                                // Empty Star
-                                                stars.add(
-                                                  Star(
-                                                    height: 16.px,
-                                                    width: 16.px,
-                                                    styles: Styles(
-                                                      color: emptyStarColor,
-                                                      raw: {
-                                                        'fill': emptyStarColor.value,
-                                                      },
-                                                    ),
-                                                  ),
-                                                );
-                                              }
-                                            }
-                                            return stars;
-                                          }(),
-                                          span(classes: "ml-1 text-xs", [text('(${project.rating})')]),
-                                        ],
-                                      ),
-                                    if (project.downloads.isNotEmpty) ...[
-                                      if (project.rating > 0) div(classes: "w-1 h-1 bg-gray-300 rounded-full", []),
-                                      text(project.downloads),
-                                    ],
-                                    if (project.platforms.isNotEmpty) ...[
-                                      if (project.rating > 0 || project.downloads.isNotEmpty)
-                                        div(classes: "w-1 h-1 bg-gray-300 rounded-full", []),
-                                      text(project.platforms.join(', ')),
-                                    ],
-                                  ],
-                                ),
-                                div(
-                                  classes:
-                                      "text-2xl font-medium text-gray-900 group-hover:text-gray-600 transition-colors",
-                                  [text(project.title)],
-                                ),
-                                p(
-                                  classes: "text-gray-600 leading-relaxed max-w-2xl",
-                                  [text(project.description)],
-                                ),
-                                div(
-                                  classes: "flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-gray-600",
-                                  [
-                                    ...() {
-                                      final techWidgets = <Component>[];
-                                      for (var i = 0; i < project.tech.length; i++) {
-                                        techWidgets.add(text(project.tech[i]));
-                                        if (i < project.tech.length - 1) {
-                                          techWidgets.add(
-                                            span(classes: "w-1 h-1 bg-gray-400 rounded-full", []),
-                                          );
-                                        }
-                                      }
-                                      return techWidgets;
-                                    }(),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            button(
-                              classes:
-                                  "icon-link group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform",
-                              [
-                                ExternalLink(
-                                  height: 24.px,
-                                  width: 24.px,
-                                  styles: Styles(
-                                    raw: {
-                                      "strokeWidth": "1.5.px",
-                                    },
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    );
-
-                    if (project.url case final url?) {
-                      return a(href: url, target: Target.blank, [card]);
-                    }
-                    return card;
-                  }).toList(),
+                  classes: "", // Spacing is now handled by each card individually
+                  projects.map((project) => _ProjectCard(project: project)).toList(),
                 ),
               ],
             ),
@@ -352,5 +214,179 @@ class WorkSection extends StatelessComponent {
         ),
       ],
     );
+  }
+}
+
+/// A helper component to render a star rating.
+class _StarRating extends StatelessComponent {
+  const _StarRating({required this.rating});
+
+  final double rating;
+
+  @override
+  Component build(BuildContext context) {
+    if (rating <= 0) {
+      return text(''); // Render nothing if rating is 0 or less
+    }
+
+    final stars = <Component>[];
+    final fullStars = rating.floor();
+    final hasHalfStar = (rating - fullStars) >= 0.5;
+    final starColor = Color('#ffc107'); // amber-500
+    final emptyStarColor = Color('#e5e7eb'); // gray-200
+
+    for (var i = 0; i < 5; i++) {
+      if (i < fullStars) {
+        stars.add(
+          Star(
+            height: 16.px,
+            width: 16.px,
+            styles: Styles(color: starColor, raw: {'fill': starColor.value}),
+          ),
+        );
+      } else if (i == fullStars && hasHalfStar) {
+        stars.add(
+          StarHalf(
+            height: 16.px,
+            width: 16.px,
+            styles: Styles(color: starColor, raw: {'fill': starColor.value}),
+          ),
+        );
+      } else {
+        stars.add(
+          Star(
+            height: 16.px,
+            width: 16.px,
+            styles: Styles(color: emptyStarColor, raw: {'fill': emptyStarColor.value}),
+          ),
+        );
+      }
+    }
+
+    return div(
+      classes: "flex items-center gap-1.5",
+      [
+        ...stars,
+        span(classes: "ml-1 text-xs", [text('($rating)')]),
+      ],
+    );
+  }
+}
+
+/// A component to display a single project card.
+class _ProjectCard extends StatelessComponent {
+  const _ProjectCard({required this.project});
+
+  final Project project;
+
+  @override
+  Component build(BuildContext context) {
+    final List<Component> infoItems = [];
+
+    if (project.rating > 0) {
+      infoItems.add(_StarRating(rating: project.rating));
+    }
+
+    if (project.downloads.isNotEmpty) {
+      if (infoItems.isNotEmpty) {
+        infoItems.add(div(classes: "w-1 h-1 bg-gray-300 rounded-full", []));
+      }
+      infoItems.add(text(project.downloads));
+    }
+
+    if (project.platforms.isNotEmpty) {
+      if (infoItems.isNotEmpty) {
+        infoItems.add(div(classes: "w-1 h-1 bg-gray-300 rounded-full", []));
+      }
+      infoItems.add(text(project.platforms.join(', ')));
+    }
+
+    final cardContent = div(
+      // Added bg-white, a default shadow-lg, and enhanced the hover shadow to shadow-2xl for better elevation and card feel.
+      classes:
+          "project-card group bg-white p-6 lg:p-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-2 mb-12",
+      [
+        div(
+          // On mobile, stack content and button vertically with a smaller gap.
+          // On large screens, arrange horizontally with a larger gap.
+          classes: "flex flex-col lg:flex-row lg:items-center justify-between gap-y-4 lg:gap-8",
+          [
+            div(
+              classes: "flex-1 space-y-4",
+              [
+                if (infoItems.isNotEmpty) // Only render if there's info to show
+                  div(
+                    classes: "flex items-center flex-wrap gap-x-4 gap-y-2 text-sm text-gray-500",
+                    infoItems,
+                  ),
+                div(
+                  classes: "text-2xl font-medium text-gray-900 group-hover:text-gray-600 transition-colors",
+                  [text(project.title)],
+                ),
+                p(
+                  classes: "text-gray-600 leading-relaxed max-w-2xl",
+                  [text(project.description)],
+                ),
+                if (project.keyFeatures.isNotEmpty)
+                  ul(
+                    classes: "space-y-2",
+                    project.keyFeatures.map((feature) {
+                      return li(
+                        classes: "flex items-start text-gray-600",
+                        [
+                          Check(
+                            height: 18.px,
+                            width: 18.px,
+                            classes: "mr-3 mt-0.5 flex-shrink-0 text-green-500",
+                          ),
+                          span([text(feature)]),
+                        ],
+                      );
+                    }).toList(),
+                  ),
+                div(
+                  classes: "flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-gray-600",
+                  [
+                    ...() {
+                      final techWidgets = <Component>[];
+                      for (var i = 0; i < project.tech.length; i++) {
+                        techWidgets.add(text(project.tech[i]));
+                        if (i < project.tech.length - 1) {
+                          techWidgets.add(
+                            span(classes: "w-1 h-1 bg-gray-400 rounded-full", []),
+                          );
+                        }
+                      }
+                      return techWidgets;
+                    }(),
+                  ],
+                ),
+              ],
+            ),
+            if (project.url != null) // Only show the external link button if a URL exists
+              button(
+                classes: "icon-link group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform",
+                [
+                  ExternalLink(
+                    height: 24.px,
+                    width: 24.px,
+                    styles: Styles(
+                      raw: {
+                        "strokeWidth": "1.5.px",
+                      },
+                    ),
+                  ),
+                ],
+              ),
+          ],
+        ),
+      ],
+    );
+
+    // If a URL exists, wrap the card content in an anchor tag.
+    if (project.url case final url?) {
+      return a(href: url, target: Target.blank, [cardContent]);
+    }
+    return cardContent; // Otherwise, return just the card content.
   }
 }

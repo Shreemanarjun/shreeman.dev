@@ -11,9 +11,12 @@
         <link rel="preconnect" href="https://www.buymeacoffee.com" crossorigin>
             <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <!-- Asynchronously load the stylesheet to prevent render-blocking -->
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="preload" href="font.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="styles.css"></noscript>
+        <noscript><link rel="stylesheet" href="font.css"></noscript>
+
 
         <!-- The generated flutter manifest and bootstrap script -->
         <link rel="manifest" href="manifest.json">
