@@ -3,8 +3,18 @@ import 'package:jaspr/jaspr.dart';
 class SkillsSection extends StatelessComponent {
   const SkillsSection({super.key});
 
-  static const mobileSkills = ['Flutter', 'Dart', 'Android (Kotlin)', 'iOS (Swift)', 'React Native'];
-  static const backendSkills = ['Firebase', 'Node.js', 'Python', 'Google Cloud', 'AWS'];
+  static const mobileSkills = [
+    'Flutter',
+    'Dart',
+    'Android (Kotlin)',
+    'iOS (Swift)',
+  ];
+  static const backendSkills = [
+    'Firebase',
+    'Springboot',
+    'Shelf',
+    'Kotlin Ktor',
+  ];
   static const advocacySkills = [
     'Technical Writing',
     'Public Speaking',
@@ -62,7 +72,9 @@ class SkillsSection extends StatelessComponent {
               .map(
                 (skill) => li(
                   classes: "skill-item group",
-                  [text(skill)],
+                  [
+                    text(skill),
+                  ],
                 ),
               )
               .toList(),
