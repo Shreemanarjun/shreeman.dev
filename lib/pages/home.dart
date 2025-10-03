@@ -12,7 +12,7 @@ import 'package:paper_port/pages/footer.dart';
 import 'package:paper_port/pages/hero_page.dart';
 import 'package:paper_port/pages/nav.dart';
 import 'package:paper_port/pages/skills_section.dart';
-import 'package:paper_port/pages/work_section.dart';
+import 'package:paper_port/pages/work_section/work_section.dart';
 import 'package:paper_port/services/scroll_services.dart';
 import 'package:paper_port/services/visibilty_observer.dart';
 
