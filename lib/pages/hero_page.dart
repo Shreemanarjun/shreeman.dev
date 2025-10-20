@@ -179,7 +179,11 @@ class _HeroActions extends StatelessComponent {
           classes:
               "group flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium bg-purple-50 text-purple-700 transition-all duration-300 hover:bg-purple-100 border-2 border-transparent hover:border-purple-200",
           [
-            Book(height: 16.px, width: 16.px),
+            img(
+              src: "https://zmozkivkhopoeutpnnum.supabase.co/storage/v1/object/public/images/datum.png",
+              height: 40,
+              width: 40,
+            ),
             span([text("Datum Docs")]),
             ArrowUpRight(
               height: 16.px,

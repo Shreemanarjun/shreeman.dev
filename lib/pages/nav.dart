@@ -177,24 +177,25 @@ class LogoComponent extends StatelessComponent {
             text('shreeman.dev'),
           ],
         ),
-        a(
-          href: "https://jaspr.site/",
-          target: Target.blank,
-          classes:
-              'mt-1 flex items-center space-x-1 animate-fade-up text-xs font-semibold text-gray-500 hover:text-gray-800 transition-colors',
-          [
-            text('Made with Jaspr'),
-            img(
-              src: 'images/logo.svg',
-              alt: 'Jaspr logo',
-              styles: Styles(
-                width: 16.px,
-                height: 16.px,
-                margin: Spacing.only(left: 4.px),
-              ),
-            ),
-          ],
-        ),
+        JasprBadge.light(),
+        // a(
+        //   href: "https://jaspr.site/",
+        //   target: Target.blank,
+        //   classes:
+        //       'mt-1 flex items-center space-x-1 animate-fade-up text-xs font-semibold text-gray-500 hover:text-gray-800 transition-colors',
+        //   [
+        //     text('Made with Jaspr'),
+        //     img(
+        //       src: 'images/logo.svg',
+        //       alt: 'Jaspr logo',
+        //       styles: Styles(
+        //         width: 16.px,
+        //         height: 16.px,
+        //         margin: Spacing.only(left: 4.px),
+        //       ),
+        //     ),
+        //   ],
+        // ),
       ],
     );
   }

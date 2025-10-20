@@ -15,9 +15,12 @@ class Footer extends StatelessComponent {
               classes: "flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0",
               [
                 div(classes: "text-gray-500 text-sm", [text("© 2025 Shreeman Arjun Sahu. All rights reserved.")]),
-                div(classes: "flex items-center space-x-6 text-sm text-gray-500", [
-                  span([text("Made with ❤️ and Jaspr")]),
-                ]),
+                div(
+                  classes: "flex items-center space-x-6 text-sm text-gray-500",
+                  [
+                    span([text("Made with ❤️ and Jaspr")]),
+                  ],
+                ),
               ],
             ),
           ],
