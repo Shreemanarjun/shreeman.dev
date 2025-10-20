@@ -1,7 +1,6 @@
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_lucide/jaspr_lucide.dart' hide Component, Target;
 import 'package:jaspr_riverpod/jaspr_riverpod.dart';
-import 'package:jaspr_riverpod/legacy.dart';
 
 import 'package:paper_port/services/scroll_services.dart';
 

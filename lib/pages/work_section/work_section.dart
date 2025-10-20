@@ -34,6 +34,25 @@ class WorkSection extends StatelessComponent {
       screenshots: const [],
     ),
     Project(
+      title: "datum",
+      rating: 0,
+      description:
+          "A powerful, offline-first data synchronization engine for Flutter and Dart, featuring relational data support, real-time queries, and intelligent conflict resolution.",
+      tech: const [
+        "Flutter",
+        "Offline First",
+        "Synchronization",
+        "Database",
+        "Supabase",
+      ],
+      keyFeatures: const ["Smart ⚡ Reactive 🔄 Universal 🌍", "intelligent Syncing", "Cross-platform support"],
+      downloads: "100+ downloads",
+      platforms: [
+        PubDeploy(url: "https://pub.dev/packages/datum"),
+      ],
+      screenshots: const ["https://zmozkivkhopoeutpnnum.supabase.co/storage/v1/object/public/images/datum.png"],
+    ),
+    Project(
       title: "printing_ffi",
       rating: 0,
       description:

@@ -369,7 +369,7 @@ class ScrollToTopButton extends StatelessComponent {
   }
 }
 
-class ScrollNotifier extends Notifier<ScrollState> {
+class ScrollNotifier extends AutoDisposeNotifier<ScrollState> {
   ScrollNotifier() : super();
 
   JSFunction? _scrollListener;
