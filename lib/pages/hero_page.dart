@@ -111,6 +111,7 @@ class _HeroActions extends StatelessComponent {
             span([text("View CV")]),
           ],
         ),
+
         button(
           events: events(
             onClick: () {
@@ -162,6 +163,42 @@ class _HeroActions extends StatelessComponent {
               width: 18.px,
             ),
             span([text("Buy me a coffee")]),
+            ArrowUpRight(
+              height: 16.px,
+              width: 16.px,
+              classes: "group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform",
+            ),
+          ],
+        ),
+        button(
+          events: events(
+            onClick: () {
+              window.open('https://datum.shreeman.dev', '_blank');
+            },
+          ),
+          classes:
+              "group flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium bg-purple-50 text-purple-700 transition-all duration-300 hover:bg-purple-100 border-2 border-transparent hover:border-purple-200",
+          [
+            Book(height: 16.px, width: 16.px),
+            span([text("Datum Docs")]),
+            ArrowUpRight(
+              height: 16.px,
+              width: 16.px,
+              classes: "group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform",
+            ),
+          ],
+        ),
+        button(
+          events: events(
+            onClick: () {
+              window.open('https://printing.shreeman.dev', '_blank');
+            },
+          ),
+          classes:
+              "group flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium bg-teal-50 text-teal-700 transition-all duration-300 hover:bg-teal-100 border-2 border-transparent hover:border-teal-200",
+          [
+            Printer(height: 16.px, width: 16.px),
+            span([text("Printing FFI Docs")]),
             ArrowUpRight(
               height: 16.px,
               width: 16.px,
