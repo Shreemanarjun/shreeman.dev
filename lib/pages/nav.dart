@@ -1,6 +1,8 @@
+import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'package:jaspr_lucide/jaspr_lucide.dart' hide Component, Target;
+import 'package:jaspr_lucide/jaspr_lucide.dart' hide  Target;
 import 'package:jaspr_riverpod/jaspr_riverpod.dart';
+import 'package:jaspr_riverpod/legacy.dart';
 
 import 'package:paper_port/services/scroll_services.dart';
 
@@ -55,7 +57,7 @@ class _CustomNavState extends State<CustomNav> {
               "text-gray-600",
               defaultClasses,
             ].join(' '),
-            [text(sectionData.label)],
+            [Component.text(sectionData.label)],
           );
         } else if (id != null) {
           // This is an in-page scroll link.
@@ -75,11 +77,11 @@ class _CustomNavState extends State<CustomNav> {
               defaultClasses,
               "cursor-pointer",
             ].join(' '),
-            [text(sectionData.label)],
+            [Component.text(sectionData.label)],
           );
         }
         // Return an empty component if neither id nor href is provided.
-        return text('');
+        return Component.text('');
       },
     );
   }
@@ -174,7 +176,7 @@ class LogoComponent extends StatelessComponent {
           href: '/',
           classes: 'text-xl font-bold text-transparent bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text',
           [
-            text('shreeman.dev'),
+            Component.text('shreeman.dev'),
           ],
         ),
         JasprBadge.light(),

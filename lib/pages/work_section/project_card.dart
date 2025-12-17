@@ -1,5 +1,6 @@
+import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'package:jaspr_lucide/jaspr_lucide.dart' hide Component;
+import 'package:jaspr_lucide/jaspr_lucide.dart';
 import 'package:paper_port/pages/work_section/platform_links.dart';
 import 'package:paper_port/pages/work_section/project.dart';
 import 'package:paper_port/pages/work_section/star_rating.dart';
@@ -22,7 +23,7 @@ class ProjectCard extends StatelessComponent {
       if (infoItems.isNotEmpty) {
         infoItems.add(div(classes: "w-1 h-1 bg-gray-300 rounded-full", []));
       }
-      infoItems.add(text(project.downloads));
+      infoItems.add(Component.text(project.downloads));
     }
 
     final cardContent = div(
@@ -44,11 +45,11 @@ class ProjectCard extends StatelessComponent {
                   ),
                 div(
                   classes: "text-2xl font-medium text-gray-900 group-hover:text-gray-600 transition-colors",
-                  [text(project.title)],
+                  [Component.text(project.title)],
                 ),
                 p(
                   classes: "text-gray-600 leading-relaxed max-w-2xl",
-                  [text(project.description)],
+                  [Component.text(project.description)],
                 ),
                 if (project.keyFeatures.isNotEmpty)
                   ul(
@@ -62,7 +63,7 @@ class ProjectCard extends StatelessComponent {
                             width: 18.px,
                             classes: "mr-3 mt-0.5 flex-shrink-0 text-green-500",
                           ),
-                          span([text(feature)]),
+                          span([Component.text(feature)]),
                         ],
                       );
                     }).toList(),
@@ -73,7 +74,7 @@ class ProjectCard extends StatelessComponent {
                     ...() {
                       final techWidgets = <Component>[];
                       for (var i = 0; i < project.tech.length; i++) {
-                        techWidgets.add(text(project.tech[i]));
+                        techWidgets.add(Component.text(project.tech[i]));
                         if (i < project.tech.length - 1) {
                           techWidgets.add(
                             span(classes: "w-1 h-1 bg-gray-400 rounded-full", []),

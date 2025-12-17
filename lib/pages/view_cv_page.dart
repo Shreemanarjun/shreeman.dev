@@ -1,8 +1,9 @@
+import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_router/jaspr_router.dart';
 import 'package:universal_web/js_interop.dart';
 import 'package:universal_web/web.dart' as web;
-import 'package:jaspr_lucide/jaspr_lucide.dart' hide Text, Component, Router;
+import 'package:jaspr_lucide/jaspr_lucide.dart' hide Router;
 
 class ViewCvPage extends StatefulComponent {
   @override

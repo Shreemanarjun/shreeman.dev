@@ -1,3 +1,4 @@
+import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:paper_port/pages/work_section/project_card.dart';
 import 'package:paper_port/pages/work_section/deploy.dart';
@@ -254,7 +255,7 @@ class WorkSection extends StatelessComponent {
                 div(
                   classes: "text-center space-y-4",
                   [
-                    h2(classes: "text-4xl md:text-5xl font-light text-gray-900", [text("Featured Work")]),
+                    h2(classes: "text-4xl md:text-5xl font-light text-gray-900", [Component.text("Featured Work")]),
                     div(classes: "w-16 h-0.5 bg-gray-900 mx-auto", []),
                   ],
                 ),

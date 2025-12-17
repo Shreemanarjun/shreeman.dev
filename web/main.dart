@@ -3,7 +3,7 @@
 // This file is compiled to javascript and executed in the browser.
 
 // Client-specific jaspr import.
-import 'package:jaspr/browser.dart';
+import 'package:jaspr/client.dart';
 // Imports the [App] component.
 import 'package:paper_port/app.dart';
 

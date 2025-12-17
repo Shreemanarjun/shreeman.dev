@@ -1,5 +1,6 @@
+import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'package:jaspr_lucide/jaspr_lucide.dart' hide Component, Target;
+import 'package:jaspr_lucide/jaspr_lucide.dart' hide Target;
 
 typedef SocialLink = ({Component icon, String name, String url});
 
@@ -28,11 +29,11 @@ class ContactSection extends StatelessComponent {
                 div(
                   classes: "space-y-6",
                   [
-                    h2(classes: "text-4xl md:text-5xl font-light text-gray-900", [text("Let's collaborate")]),
+                    h2(classes: "text-4xl md:text-5xl font-light text-gray-900", [Component.text("Let's collaborate")]),
                     p(
                       classes: "text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed",
                       [
-                        text(
+                        Component.text(
                           "Always interested in new opportunities, speaking engagements, and collaborative projects that push the boundaries of mobile development.",
                         ),
                       ],
@@ -50,7 +51,7 @@ class ContactSection extends StatelessComponent {
                       [
                         // Mail Icon
                         Mail(height: 18.px, width: 18.px),
-                        span([text("Get in touch")]),
+                        span([Component.text("Get in touch")]),
                         // Arrow Icon
                         ArrowUpRight(
                           height: 16.px,
@@ -79,7 +80,7 @@ class ContactSection extends StatelessComponent {
                 ),
                 div(
                   classes: "flex justify-center space-x-6 pt-8",
-                  socialLinks.map((link) => _buildSocialLink(link.icon, link.url)).toList(),
+                  socialLinks.map((clink) => _buildSocialLink(clink.icon, clink.url)).toList(),
                 ),
               ],
             ),

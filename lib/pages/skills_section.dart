@@ -1,3 +1,4 @@
+import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
 class SkillsSection extends StatelessComponent {
@@ -38,7 +39,7 @@ class SkillsSection extends StatelessComponent {
                 div(
                   classes: "text-center space-y-4",
                   [
-                    h2(classes: "text-4xl md:text-5xl font-light text-gray-900", [text("Expertise")]),
+                    h2(classes: "text-4xl md:text-5xl font-light text-gray-900", [Component.text("Expertise")]),
                     div(classes: "w-16 h-0.5 bg-gray-900 mx-auto", []),
                   ],
                 ),
@@ -64,7 +65,7 @@ class SkillsSection extends StatelessComponent {
       [
         h3(
           classes: "text-xl font-medium text-gray-900 mb-6",
-          [text(title)],
+          [Component.text(title)],
         ),
         ul(
           classes: "space-y-3",
@@ -73,7 +74,7 @@ class SkillsSection extends StatelessComponent {
                 (skill) => li(
                   classes: "skill-item group",
                   [
-                    text(skill),
+                    Component.text(skill),
                   ],
                 ),
               )

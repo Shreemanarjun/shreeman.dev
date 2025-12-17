@@ -10,24 +10,25 @@ environment:
 dependencies:
   # flutter:
   #    sdk: flutter
-  jaspr: ^0.21.5
+  jaspr: ^0.22.0
   # jaspr_flutter_embed: ^0.4.9
+
   jaspr_lucide:
     git: https://github.com/Shreemanarjun/jaspr_lucide.git
-  jaspr_riverpod: ^0.3.23
-  jaspr_router: ^0.7.3
-  js_interop_utils: ^1.0.8
+  jaspr_riverpod: ^0.4.2
+  jaspr_router: ^0.8.0
+  js_interop_utils: ^1.0.9
   universal_web: ^1.1.1
 
 dev_dependencies:
-  build_runner: ^2.10.0
-  build_web_compilers: ^4.3.0
-  jaspr_builder: ^0.21.5
+  build_runner: ^2.10.4
+  build_web_compilers: ^4.4.6
+  jaspr_builder: ^0.22.0
   # flutter_test:
   #   sdk: flutter
   flutter_lints: ^6.0.0
-  jaspr_lints: ^0.5.1
-  jaspr_tailwind: ^0.3.4
+  jaspr_lints: ^0.6.0
+  jaspr_tailwind: ^0.3.5
 
 
 jaspr:

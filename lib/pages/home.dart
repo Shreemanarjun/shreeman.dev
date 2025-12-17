@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:js_interop';
 
+import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_riverpod/jaspr_riverpod.dart';
 import 'package:paper_port/services/work_scroll_progress_provider.dart';
@@ -108,7 +109,7 @@ class ScrollProgressBar extends StatelessComponent {
     // Watch both the active section and the overall scroll progress.
     final activeSectionID = context.watch(activeSectionIDProvider);
     final activeSection = SectionIndicatorState.sections.firstWhere(
-      (s) => s.id == activeSectionID,
+      (sss) => sss.id == activeSectionID,
       orElse: () => SectionIndicatorState.sections.first,
     );
 
@@ -253,24 +254,24 @@ class SectionIndicatorState extends State<SectionIndicator> with VisibilityObser
           final activeSectionID = context.watch(activeSectionIDProvider);
           final workProgressPercent = context.watch(workScrollProgressProvider) * 100;
 
-          return sections.map((section) {
-            final activeSection = sections.firstWhere((s) => s.id == activeSectionID, orElse: () => sections.first);
-            final isPassed = section.position <= activeSection.position;
-            final isActive = section.id == activeSectionID;
+          return sections.map((csection) {
+            final activeSection = sections.firstWhere((ss) => ss.id == activeSectionID, orElse: () => sections.first);
+            final isPassed = csection.position <= activeSection.position;
+            final isActive = csection.id == activeSectionID;
 
             // Determine the vertical position of the indicator dot.
             double topPositionPercent;
-            if (isActive && section.id == 'work') {
+            if (isActive && csection.id == 'work') {
               // If the 'work' section is active, use the granular, continuous progress.
-              final workSectionDef = sections.firstWhere((s) => s.id == 'work');
-              final skillsSectionDef = sections.firstWhere((s) => s.id == 'skills');
+              final workSectionDef = sections.firstWhere((ss) => ss.id == 'work');
+              final skillsSectionDef = sections.firstWhere((ss) => ss.id == 'skills');
               topPositionPercent = workProgressPercent.clamp(
                 workSectionDef.position.toDouble(),
                 skillsSectionDef.position.toDouble(),
               );
             } else {
               // Otherwise, use the fixed position for the section.
-              topPositionPercent = section.position.toDouble();
+              topPositionPercent = csection.position.toDouble();
             }
 
             return div(
@@ -292,7 +293,7 @@ class SectionIndicatorState extends State<SectionIndicator> with VisibilityObser
                     ),
                     // The clickable dot.
                     button(
-                      events: events(onClick: () => ScrollService().scrollToSection(section.id)),
+                      events: events(onClick: () => ScrollService().scrollToSection(csection.id)),
                       classes:
                           "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-2 transition-all duration-300 ${isPassed ? 'bg-gray-900 border-gray-900' : 'bg-transparent border-gray-400'}",
                       [],
@@ -308,7 +309,7 @@ class SectionIndicatorState extends State<SectionIndicator> with VisibilityObser
                   [
                     div(
                       classes: "bg-gray-900 text-white px-3 py-1 rounded-md text-sm font-medium whitespace-nowrap",
-                      [text(section.label)],
+                      [Component.text(csection.label)],
                     ),
                     div(
                       classes:
@@ -332,7 +333,7 @@ class ScrollToTopButton extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     // Watch the scroll provider to determine visibility.
-    final scrollProgress = context.watch(scrollProvider.select((s) => s.progress));
+    final scrollProgress = context.watch(scrollProvider.select((ss) => ss.progress));
 
     // Show the button only after scrolling down 20% of the page.
     final isVisible = scrollProgress > 0.1;
@@ -369,7 +370,7 @@ class ScrollToTopButton extends StatelessComponent {
   }
 }
 
-class ScrollNotifier extends AutoDisposeNotifier<ScrollState> {
+class ScrollNotifier extends Notifier<ScrollState> {
   ScrollNotifier() : super();
 
   JSFunction? _scrollListener;

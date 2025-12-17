@@ -1,5 +1,6 @@
+import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'package:jaspr_lucide/jaspr_lucide.dart' hide Component;
+import 'package:jaspr_lucide/jaspr_lucide.dart';
 
 /// A helper component to render a star rating.
 class StarRating extends StatelessComponent {
@@ -10,7 +11,7 @@ class StarRating extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     if (rating <= 0) {
-      return text(''); // Render nothing if rating is 0 or less
+      return Component.text(''); // Render nothing if rating is 0 or less
     }
 
     final stars = <Component>[];
@@ -51,7 +52,7 @@ class StarRating extends StatelessComponent {
       classes: "flex items-center gap-1.5",
       [
         ...stars,
-        span(classes: "ml-1 text-xs", [text('($rating)')]),
+        span(classes: "ml-1 text-xs", [Component.text('($rating)')]),
       ],
     );
   }

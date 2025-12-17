@@ -1,5 +1,6 @@
+import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'package:jaspr_lucide/jaspr_lucide.dart' hide Component, Router, Target;
+import 'package:jaspr_lucide/jaspr_lucide.dart' hide Router, Target;
 import 'package:jaspr_router/jaspr_router.dart';
 import 'package:paper_port/services/scroll_services.dart';
 import 'package:universal_web/web.dart';
@@ -42,7 +43,7 @@ class _HeroStatus extends StatelessComponent {
           "flex items-center justify-center md:justify-start space-x-2 text-sm text-gray-500 font-medium tracking-wider uppercase",
       [
         div(classes: "w-4 h-4 bg-green-500 rounded-full", []),
-        span([text("Senior Flutter Developer")]),
+        span([Component.text("Senior Flutter Developer")]),
       ],
     );
   }
@@ -58,12 +59,12 @@ class _HeroHeadline extends StatelessComponent {
       [
         h1(
           classes: "text-6xl md:text-8xl font-light text-gray-900 leading-none tracking-tight",
-          [text("Shreeman Arjun Sahu")],
+          [Component.text("Shreeman Arjun Sahu")],
         ),
         p(
           classes: "text-xl md:text-2xl text-gray-600 max-w-3xl leading-relaxed font-light",
           [
-            text(
+            Component.text(
               "Crafting beautiful, performant cross-platform applications with Flutter and Dart for Android, iOS, Windows, and Web",
             ),
           ],
@@ -71,7 +72,7 @@ class _HeroHeadline extends StatelessComponent {
         p(
           classes: "text-lg text-gray-600 max-w-3xl leading-relaxed",
           [
-            text(
+            Component.text(
               "Passionate about creating seamless user experiences across all platforms with a single codebase. Specializing in modern UI/UX design, scalable architecture, and cross-platform optimization.",
             ),
           ],
@@ -95,7 +96,7 @@ class _HeroActions extends StatelessComponent {
               "group flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium bg-blue-600 text-white transition-all duration-300 hover:bg-blue-700 border-2 border-transparent hover:border-blue-800",
           [
             Briefcase(height: 18.px, width: 18.px),
-            span([text("View Work")]),
+            span([Component.text("View Work")]),
           ],
         ),
         button(
@@ -108,7 +109,7 @@ class _HeroActions extends StatelessComponent {
               "group flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium bg-gray-100 text-gray-800 transition-all duration-300 hover:bg-gray-200 border-2 border-transparent hover:border-gray-300",
           [
             FileText(height: 16.px, width: 16.px),
-            span([text("View CV")]),
+            span([Component.text("View CV")]),
           ],
         ),
 
@@ -125,7 +126,7 @@ class _HeroActions extends StatelessComponent {
               height: 18.px,
               width: 18.px,
             ),
-            span([text("YouTube")]),
+            span([Component.text("YouTube")]),
             ArrowUpRight(
               height: 16.px,
               width: 16.px,
@@ -149,7 +150,7 @@ class _HeroActions extends StatelessComponent {
                 raw: {'fill': 'currentColor'},
               ),
             ),
-            span([text("Sponsor")]),
+            span([Component.text("Sponsor")]),
           ],
         ),
         a(
@@ -162,7 +163,7 @@ class _HeroActions extends StatelessComponent {
               height: 18.px,
               width: 18.px,
             ),
-            span([text("Buy me a coffee")]),
+            span([Component.text("Buy me a coffee")]),
             ArrowUpRight(
               height: 16.px,
               width: 16.px,
@@ -184,7 +185,7 @@ class _HeroActions extends StatelessComponent {
               height: 40,
               width: 40,
             ),
-            span([text("Datum Docs")]),
+            span([Component.text("Datum Docs")]),
             ArrowUpRight(
               height: 16.px,
               width: 16.px,
@@ -202,7 +203,40 @@ class _HeroActions extends StatelessComponent {
               "group flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium bg-teal-50 text-teal-700 transition-all duration-300 hover:bg-teal-100 border-2 border-transparent hover:border-teal-200",
           [
             Printer(height: 16.px, width: 16.px),
-            span([text("Printing FFI Docs")]),
+            span([Component.text("Printing FFI Docs")]),
+            ArrowUpRight(
+              height: 16.px,
+              width: 16.px,
+              classes: "group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform",
+            ),
+          ],
+        ),
+        button(
+          events: events(
+            onClick: () {
+              window.open('https://jsondart.shreeman.dev', '_blank');
+            },
+          ),
+          classes:
+              "group flex items-center justify-center gap-4 px-6 py-3 rounded-lg font-medium bg-slate-200 text-slate-800 transition-all duration-300 hover:bg-slate-100 border-2 border-transparent hover:border-slate-200",
+          [
+            div(classes: 'flex items-center space-x-4', [
+              div(
+                classes:
+                    'w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center transform group-hover:rotate-6 transition-transform duration-300 shadow-md',
+                [
+                  span(classes: 'text-white font-black text-lg', [Component.text('{}')]),
+                ],
+              ),
+              div(classes: 'text-left', [
+                h1(classes: 'text-sm font-black text-slate-900 leading-none mb-1 tracking-tight', [
+                  Component.text('JSON DART'),
+                ]),
+                p(classes: 'text-[8px] font-bold text-slate-400 uppercase tracking-[0.2em] leading-none', [
+                  Component.text('Mappable v4'),
+                ]),
+              ]),
+            ]),
             ArrowUpRight(
               height: 16.px,
               width: 16.px,
@@ -225,14 +259,14 @@ class _HeroMetaInfo extends StatelessComponent {
       [
         div(classes: "flex items-center space-x-2 text-sm text-gray-600", [
           div(classes: "w-2 h-2 bg-green-500 rounded-full animate-pulse", []),
-          span([text("Available for collaborations")]),
+          span([Component.text("Available for collaborations")]),
         ]),
         div(classes: "flex items-center space-x-2 text-sm text-gray-600", [
           MapPin(
             height: 14.px,
             width: 14.px,
           ),
-          span([text("Bhubaneswar, India")]),
+          span([Component.text("Bhubaneswar, India")]),
         ]),
       ],
     );

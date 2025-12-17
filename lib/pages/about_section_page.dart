@@ -1,5 +1,6 @@
+import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'package:jaspr_lucide/jaspr_lucide.dart' hide Component;
+import 'package:jaspr_lucide/jaspr_lucide.dart';
 
 class AboutSection extends StatelessComponent {
   const AboutSection({super.key});
@@ -23,14 +24,14 @@ class AboutSection extends StatelessComponent {
                     div(
                       classes: "space-y-4",
                       [
-                        h2(classes: "text-4xl md:text-5xl font-light text-gray-900", [text("About Me")]),
+                        h2(classes: "text-4xl md:text-5xl font-light text-gray-900", [Component.text("About Me")]),
                         div(classes: "w-16 h-0.5 bg-gray-900", []),
                       ],
                     ),
                     p(
                       classes: "text-lg text-gray-600 leading-relaxed",
                       [
-                        text(
+                        Component.text(
                           "I'm a passionate Flutter developer with 3+ years of experience building high-quality mobile applications. I love turning ideas into beautiful, functional apps that users enjoy.",
                         ),
                       ],
@@ -38,11 +39,11 @@ class AboutSection extends StatelessComponent {
                     div(
                       classes: "space-y-4",
                       [
-                        h3(classes: "text-2xl font-medium text-gray-800", [text("My Journey")]),
+                        h3(classes: "text-2xl font-medium text-gray-800", [Component.text("My Journey")]),
                         p(
                           classes: "text-lg text-gray-600 leading-relaxed",
                           [
-                            text(
+                            Component.text(
                               "Started my development journey with native Android and iOS development, then discovered Flutter and fell in love with its efficiency and cross-platform capabilities.",
                             ),
                           ],
@@ -50,7 +51,7 @@ class AboutSection extends StatelessComponent {
                         p(
                           classes: "text-lg text-gray-600 leading-relaxed",
                           [
-                            text(
+                            Component.text(
                               "I've worked on various projects ranging from e-commerce apps to productivity tools across Android, iOS, Windows, and Web platforms, always focusing on creating exceptional user experiences with clean, maintainable code.",
                             ),
                           ],
@@ -64,7 +65,7 @@ class AboutSection extends StatelessComponent {
                 div(
                   classes: "space-y-6 p-8 bg-white rounded-lg shadow-sm border border-gray-100",
                   [
-                    h3(classes: "text-2xl font-medium text-gray-800", [text("Key Achievements")]),
+                    h3(classes: "text-2xl font-medium text-gray-800", [Component.text("Key Achievements")]),
                     ul(
                       classes: "space-y-3 text-gray-600",
                       [
@@ -75,7 +76,7 @@ class AboutSection extends StatelessComponent {
                             classes: "mt-1 flex-shrink-0",
                             styles: Styles(color: Color("#10B981")),
                           ),
-                          span([text("15+ cross-platform applications deployed")]),
+                          span([Component.text("15+ cross-platform applications deployed")]),
                         ]),
                         li(classes: "flex items-start gap-3", [
                           BadgeCheck(
@@ -84,7 +85,7 @@ class AboutSection extends StatelessComponent {
                             classes: "mt-1 flex-shrink-0",
                             styles: Styles(color: Color("#10B981")),
                           ),
-                          span([text("1M+ combined app downloads")]),
+                          span([Component.text("1M+ combined app downloads")]),
                         ]),
                         li(classes: "flex items-start gap-3", [
                           BadgeCheck(
@@ -93,7 +94,7 @@ class AboutSection extends StatelessComponent {
                             classes: "mt-1 flex-shrink-0",
                             styles: Styles(color: Color("#10B981")),
                           ),
-                          span([text("Expertise in state management (Bloc, Provider, Riverpod)")]),
+                          span([Component.text("Expertise in state management (Bloc, Provider, Riverpod)")]),
                         ]),
                         li(classes: "flex items-start gap-3", [
                           BadgeCheck(
@@ -102,7 +103,7 @@ class AboutSection extends StatelessComponent {
                             classes: "mt-1 flex-shrink-0",
                             styles: Styles(color: Color("#10B981")),
                           ),
-                          span([text("Firebase & cloud services integration specialist")]),
+                          span([Component.text("Firebase & cloud services integration specialist")]),
                         ]),
                       ],
                     ),
@@ -151,8 +152,8 @@ class AboutSection extends StatelessComponent {
           classes: "flex items-center justify-center w-16 h-16 mx-auto bg-gray-100 rounded-full text-gray-700",
           [icon],
         ),
-        h4(classes: "text-xl font-semibold text-gray-800", [text(title)]),
-        p(classes: "text-gray-500", [text(description)]),
+        h4(classes: "text-xl font-semibold text-gray-800", [Component.text(title)]),
+        p(classes: "text-gray-500", [Component.text(description)]),
       ],
     );
   }
